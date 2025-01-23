@@ -12,6 +12,8 @@
     --input-text: #000;
     --submit-color: #f3af84;
     --submit-text: #000;
+    --scrollbar-bg: #fff;
+    --scrollbar-color: rgb(253, 196, 167);
 }
 
 .dark {
@@ -28,6 +30,8 @@
     --input-text: #ffffff;
     --submit-color: #580346;
     --submit-text: #fff;
+    --scrollbar-bg: #000;
+    --scrollbar-color: rgb(82, 1, 55);
 }
 
 * {
@@ -55,14 +59,20 @@ body {
 }
 
 .chat__window {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 25px 15px;
     width: 100%;
     height: 100%;
     border-radius: 15px;
     background-image: var(--chat-gradient);
+    overflow: hidden;
+}
+
+.chat__message-container {
+    width: 96%;
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px calc(20px - (100vw - 100%)) 0 15px;
     overflow: auto;
 }
 
@@ -77,7 +87,7 @@ body {
     background-color: var(--message-color);
     color: var(--message-text);
     overflow-wrap: break-word;
-    white-space: nowrap;
+    white-space: pre-wrap;
 }
 
 .message.user {
@@ -166,3 +176,19 @@ body {
 .theme-button.light {
     background-image: url(../images/moon.svg);
 }
+
+.chat__message-container::-webkit-scrollbar {
+    position: absolute;
+    right: 50px;
+    width: 10px;               /* ширина scrollbar */
+}
+  
+.chat__message-container::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);        /* цвет дорожки */
+}
+
+.chat__message-container::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 2px solid var(--scrollbar-bg);  /* padding вокруг плашки */
+  }

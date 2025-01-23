@@ -34,7 +34,7 @@ function SendMessage() {
             message.classList.add('user');
             message.classList.add('light');
             message.innerHTML = document.querySelector('.chat__input-field').value;
-            document.querySelector('.chat__window').appendChild(message)
+            document.querySelector('.chat__message-container').appendChild(message)
             document.querySelector('.chat__input-field').value = null;
         }
         else {
@@ -43,7 +43,7 @@ function SendMessage() {
             message.classList.add('user');
             message.classList.add('dark');
             message.innerHTML = document.querySelector('.chat__input-field').value;
-            document.querySelector('.chat__window').appendChild(message)
+            document.querySelector('.chat__message-container').appendChild(message)
             document.querySelector('.chat__input-field').value = null;
         }
     }
