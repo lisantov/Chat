@@ -28,23 +28,17 @@ document.querySelector('textarea').addEventListener('keydown', (e) => {
 
 function SendMessage() {
     if(document.querySelector('.chat__input-field').value != '' && document.querySelector('.chat__input-field').value != ' ') {
-        if(theme) {
-            let message = document.createElement('div');
-            message.classList.add('message');
-            message.classList.add('user');
-            message.classList.add('light');
-            message.innerHTML = document.querySelector('.chat__input-field').value;
-            document.querySelector('.chat__message-container').appendChild(message)
-            document.querySelector('.chat__input-field').value = null;
-        }
-        else {
-            let message = document.createElement('div');
-            message.classList.add('message');
-            message.classList.add('user');
-            message.classList.add('dark');
-            message.innerHTML = document.querySelector('.chat__input-field').value;
-            document.querySelector('.chat__message-container').appendChild(message)
-            document.querySelector('.chat__input-field').value = null;
-        }
+        let message = document.createElement('div');
+        message.classList.add('message');
+        message.classList.add('user');
+        if (theme) message.classList.add('light');
+        else message.classList.add('dark');
+
+        let formattedMessage = String(document.querySelector('.chat__input-field').value).replace('<', '&lt;');
+        formattedMessage = formattedMessage.replace('>', '&gt;');
+        message.innerHTML = formattedMessage;
+        
+        document.querySelector('.chat__message-container').appendChild(message)
+        document.querySelector('.chat__input-field').value = null;
     }
 };
