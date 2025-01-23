@@ -69,6 +69,7 @@ body {
 .chat__message-container {
     width: 96%;
     height: calc(100% - 70px);
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -79,6 +80,7 @@ body {
 .message {
     max-width: 70%;
     padding: 5px 15px;
+    margin-right: 5px;
     border-radius: 10px 10px 10px 0;
     font-family: sans-serif;
     font-size: 1.5rem;
@@ -178,12 +180,11 @@ body {
 }
 
 .chat__message-container::-webkit-scrollbar {
-    position: absolute;
-    right: 50px;
     width: 10px;               /* ширина scrollbar */
 }
   
 .chat__message-container::-webkit-scrollbar-track {
+    border-radius: 18px;
     background: var(--scrollbar-bg);        /* цвет дорожки */
 }
 
