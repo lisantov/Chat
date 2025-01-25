@@ -40,5 +40,7 @@ function SendMessage() {
         
         document.querySelector('.chat__message-container').appendChild(message)
         document.querySelector('.chat__input-field').value = null;
+
+        document.getElementById('chat__feed').scrollTop = document.getElementById('chat__feed').scrollHeight;
     }
 };
